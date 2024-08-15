@@ -1,0 +1,42 @@
+{
+  "include": [
+    "./src/global.d.ts"
+  ],
+  "compilerOptions": {
+    "plugins": [{
+      "name": "typescript-plugin-css-modules"
+    }],
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "allowUnreachableCode": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "diagnostics": true,
+    "noImplicitThis": false,
+    "removeComments": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
