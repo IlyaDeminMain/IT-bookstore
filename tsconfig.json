@@ -1,6 +1,8 @@
 {
   "include": [
-    "./src/global.d.ts"
+    "./src/types/env",
+    "./src/types/format-img",
+    "./src/types/module-css"
   ],
   "compilerOptions": {
     "plugins": [{
@@ -16,14 +18,19 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "typeRoots": ["./src/types"],
     "sourceMap": true,
     "noUnusedLocals": true,
     "diagnostics": true,
     "noImplicitThis": false,
     "removeComments": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "moduleDetection": "force",
+    "emitDeclarationOnly": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": false,

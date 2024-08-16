@@ -1,16 +1,26 @@
 import {FC} from "react";
-import '../../styles1/index.css'
+import '@/styles/index.css'
 import AppRoutes from "../routes/Routes";
+import Header from "../header/Header";
+import Sidebar from "../sidebar/Sidebar";
+import Footer from "../footer/Footer";
 
 const App: FC = () => {
+
     return(
         <div className={"app"}>
-            <AppRoutes/>
+            <Header/>
+            <div className={"container"}>
+                <Sidebar/>
+                <AppRoutes/>
+            </div>
+            <Footer/>
         </div>
     )
 };
 
 export default App;
+
 
 
 // if (__ENV__ === "production"){

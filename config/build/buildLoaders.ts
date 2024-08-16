@@ -1,11 +1,12 @@
 import {ModuleOptions} from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./type/type";
+import type {BuildOptions} from "./type/type";
 import ReactRefreshTypeScript from 'react-refresh-typescript';
+import {development} from "./buildPlugins";
 
 
 export const buildLoaders = ({mode}: BuildOptions): ModuleOptions['rules']=>{
-    const Dev = mode === "development"
+    const Dev = mode === development
 
     const cssLoaderModules = {
         loader: "css-loader",

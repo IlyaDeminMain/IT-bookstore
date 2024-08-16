@@ -1,8 +1,9 @@
 import {FC} from "react";
 
+
 const Header:FC = () => {
     return (
-        <div>
+        <div >
             Header
         </div>
     );
