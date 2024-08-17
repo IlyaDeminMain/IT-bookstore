@@ -7,9 +7,8 @@
 
 # testing
 /coverage
-
+.gitignore
 # production
-assets
 /dist
 styles1
 # misc

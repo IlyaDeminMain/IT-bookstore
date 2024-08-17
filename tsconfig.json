@@ -19,7 +19,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["src/types"],
+    "typeRoots": ["src/types", "node_modules/@types"],
     "sourceMap": true,
     "noUnusedLocals": true,
     "diagnostics": true,
@@ -34,6 +34,7 @@
     "jsx": "react-jsx",
     "allowJs": false,
     "moduleResolution": "node",
+
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
