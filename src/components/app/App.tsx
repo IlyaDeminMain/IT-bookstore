@@ -1,9 +1,9 @@
 import {FC} from "react";
-import '@/styles/index.css'
-import AppRoutes from "../routes/Routes";
-import Header from "../header/Header";
-import Sidebar from "../sidebar/Sidebar";
-import Footer from "../footer/Footer";
+import 'src/styles/index.css'
+import AppRoutes from "src/components/routes/Routes";
+import Header from "src/components/header/Header";
+import Sidebar from "src/components/sidebar/Sidebar";
+import Footer from "src/components/footer/Footer";
 
 const App: FC = () => {
 
@@ -20,17 +20,3 @@ const App: FC = () => {
 };
 
 export default App;
-
-
-
-// if (__ENV__ === "production"){
-//     return (
-//         <h1>PLATFORM={__ENV__}</h1>
-//     );
-// }
-//
-// if (__ENV__ === "development"){
-//     return (
-//         <h1>PLATFORM={__ENV__}</h1>
-//     );
-// }

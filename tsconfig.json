@@ -1,8 +1,8 @@
 {
   "include": [
-    "./src/types/env",
-    "./src/types/format-img",
-    "./src/types/module-css"
+    "src/types/env",
+    "src/types/format-img",
+    "src/types/module-css"
   ],
   "compilerOptions": {
     "plugins": [{
@@ -18,16 +18,15 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["./src/types"],
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["src/types"],
     "sourceMap": true,
     "noUnusedLocals": true,
     "diagnostics": true,
     "noImplicitThis": false,
     "removeComments": true,
     "skipLibCheck": true,
-    "declaration": true,
     "moduleDetection": "force",
-    "emitDeclarationOnly": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "ESNext",
@@ -35,10 +34,10 @@
     "jsx": "react-jsx",
     "allowJs": false,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "src/*": ["./src/*"]
     }
   },
   "ts-node": {

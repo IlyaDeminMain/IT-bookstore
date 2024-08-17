@@ -5,7 +5,7 @@ export const buildResolvers = (options: BuildOptions):Configuration['resolve']=>
     return {
         extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
         alias: {
-            "@": options.paths.src
+            "src": options.paths.src
         }
     }
 }
