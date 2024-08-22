@@ -2,7 +2,7 @@
   "include": [
     "src/types/env",
     "src/types/format-img",
-    "src/types/module-css"
+    "src/types/module-css",
   ],
   "compilerOptions": {
     "plugins": [{

@@ -80,6 +80,7 @@
 .account {
   display: flex;
   align-items: center;
+  margin-left: 10px;
   column-gap: 20px;
 }
 
@@ -94,7 +95,7 @@
 
 .icon-fav {
   stroke: var(--grey);
-  fill: none;
+  fill: var(--grey);
 }
 
 .icon-cart {
@@ -117,13 +118,13 @@
   position: absolute;
   width: 14px;
   height: 14px;
-  background: var(--violet);
+  background: var(--js-color);
   right: -2px;
   bottom: -2px;
   border-radius: 50%;
   font-weight: 700;
   font-size: 10px;
-  color: var(--light);
+  color: var(--dark-sea);
   text-align: center;
   line-height: 16px;
 }

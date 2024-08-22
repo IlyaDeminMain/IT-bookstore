@@ -1,13 +1,27 @@
-import {FC} from "react";
+import {FC, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {ROUTES} from "src/utils/routes";
 import Logo from "src/assets/logo.svg"
-import Search from "src/assets/sprite/search.svg";
+import Search from "src/assets/icons/search.svg";
+import Bag from "src/assets/icons/Bag.svg";
+import Heart from "src/assets/icons/heart.svg";
 import * as style from "./Header.module.css"
+import {axiosBooks} from "src/store/books/booksThunks";
+import {Dispatch, Selector} from "src/store/hooks";
+// import {API_ROUTES} from "src/api/endpoints";
 
 const Header: FC = () => {
+    const selector = Selector((sel)=> sel.books)
+    const dispatch = Dispatch()
+
+    useEffect(()=>{
+        dispatch(axiosBooks({ }))
+    }, [])
+
+    console.log(selector)
+
     return (
-        <div className={style["header"]}>
+        <header className={style["header"]}>
             <div className={style['logo']}>
                 <Link to={ROUTES.HOME}>
                     <Logo width={"50"} height={"50"}/>
@@ -28,12 +42,27 @@ const Header: FC = () => {
                            name={"search"}
                            placeholder={"Search"}
                            autoComplete={"off"}
-                           onChange={()=>{}}
+                           onChange={() => {
+                           }}
                            value={""}
                     />
                 </div>
+                {__ENV__ === "production" && <div className={style["box"]}></div>}
             </form>
-        </div>
+            <div className={style["account"]}>
+                <Link to={ROUTES.HOME} className={style["favourites"]}>
+                    <div className={style["icon-fav"]}>
+                        <Heart/>
+                    </div>
+                </Link>
+                <Link to={ROUTES.CART} className={style["cart"]}>
+                    <div className={style["icon-cart"]}>
+                        <Bag/>
+                    </div>
+                    <span className={style["count"]}>3</span>
+                </Link>
+            </div>
+        </header>
     );
 };
 

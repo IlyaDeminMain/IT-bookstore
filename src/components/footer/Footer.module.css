@@ -21,7 +21,7 @@
 }
 
 .rights a {
-  color: var(--violet);
+  color: var(--js-color);
 }
 
 .socials {
@@ -32,9 +32,9 @@
 .socials svg {
   width: 24px;
   height: 24px;
-  fill: var(--dark-sea);
+  fill: var(--js-color);
 }
 
 .socials svg:hover {
-  fill: var(--violet);
+  fill: var(--white);
 }
