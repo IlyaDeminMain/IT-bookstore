@@ -1,4 +1,4 @@
-import {FC, useEffect} from "react";
+import {FC} from "react";
 import {Link} from "react-router-dom";
 import {ROUTES} from "src/utils/routes";
 import Logo from "src/assets/logo.svg"
@@ -6,19 +6,8 @@ import Search from "src/assets/icons/search.svg";
 import Bag from "src/assets/icons/Bag.svg";
 import Heart from "src/assets/icons/heart.svg";
 import * as style from "./Header.module.css"
-import {axiosBooks} from "src/store/books/booksThunks";
-import {Dispatch, Selector} from "src/store/hooks";
-// import {API_ROUTES} from "src/api/endpoints";
 
 const Header: FC = () => {
-    const selector = Selector((sel)=> sel.books)
-    const dispatch = Dispatch()
-
-    useEffect(()=>{
-        dispatch(axiosBooks({ }))
-    }, [])
-
-    console.log(selector)
 
     return (
         <header className={style["header"]}>

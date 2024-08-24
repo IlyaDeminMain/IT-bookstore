@@ -1,4 +1,3 @@
-import {ApiError} from "src/api/types";
 
 export interface BooksTypes {
     image: string
@@ -9,9 +8,8 @@ export interface BooksTypes {
     url: string
 }[]
 
+
+
 export interface FetchBooksParams {
-    baseUrl?: string
-    url?: string
-    limit?: number;
+    timeout: number
 }
-export interface ReflectBooksType { rejectValue: ApiError }

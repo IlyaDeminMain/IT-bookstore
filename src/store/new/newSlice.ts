@@ -1,39 +1,40 @@
-import { createSlice } from '@reduxjs/toolkit'
-import categoriesThunks from "src/store/books/booksThunks";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {axiosBooks} from "src/store/books/booksThunks";
+import {NewTypes} from "src/store/new/newTypes";
 
 
-interface SomeFeatureState {
-    books: string[];
+interface NewState {
+    items: any[];
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null | any;
 }
 
-const initialState: SomeFeatureState = {
-    books: [],
+const initialState: NewState = {
+    items: [],
     status: 'idle',
     error: null,
 };
 
-export const booksSlice = createSlice({
+export const NewSlice = createSlice({
     name: 'categories',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(categoriesThunks.pending, (state) => {
+            .addCase(axiosBooks.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(categoriesThunks.fulfilled, (state) => {
+            .addCase(axiosBooks.fulfilled, (state, action: PayloadAction<NewTypes[]>) => {
                 state.status = 'succeeded';
+                state.items = action.payload;
+                state.error = null;
             })
-            .addCase(categoriesThunks.rejected, (state, action) => {
+            .addCase(axiosBooks.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = action.payload ?? 'Unknown error occurred';
+                state.error = action.payload ?? { message: 'Unknown error occurred' };
             })
     },
 })
 
-export const actions = booksSlice.actions
-export const reducer = booksSlice.reducer
 
-export default booksSlice.reducer
+export default NewSlice.reducer

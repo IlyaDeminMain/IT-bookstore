@@ -1,14 +1,18 @@
-import axios, { AxiosInstance } from 'axios';
-import {ApiClient, ApiError, ApiRequestConfig, ApiResponse} from './types';
+import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
+import {ApiClient, ApiError} from './types';
 import {API_ROUTES} from "src/api/endpoints";
+
 
 class AxiosApiClient implements ApiClient {
     private axiosInstance: AxiosInstance;
 
-    constructor(config?: ApiRequestConfig) {
+    constructor(config?: AxiosRequestConfig) {
         this.axiosInstance = axios.create({
-            baseURL: API_ROUTES.NEW,
+            baseURL: API_ROUTES.BASE_URL,
             timeout: 5000,
+            headers: {
+                'Content-Type': 'application/json',
+            },
             ...config,
         });
 
@@ -21,15 +25,15 @@ class AxiosApiClient implements ApiClient {
     private handleError(error: any): ApiError {
         if (axios.isAxiosError(error)) {
             return {
-                message: error.response?.data?.message || 'An error occurred with the API',
-                code: error.response?.data?.code,
-                status: error.response?.status,
+                message: error.message || 'An error occurred with the API',
+                code: error.code,
+                status: error.status || 404,
             };
         }
         return { message: 'An unexpected error occurred' };
     }
 
-    get<T = any>(url: string, config?: ApiRequestConfig): Promise<ApiResponse<T>> {
+    get<T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
         return this.axiosInstance.get(url, config);
     }
 }
