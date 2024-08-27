@@ -1,9 +1,12 @@
 import {FC} from "react";
+import Poster from "src/components/poster/Poster";
+
 const Home:FC = () => {
+
     return (
-        <div >
-            Home
-        </div>
+        <>
+            <Poster/>
+        </>
     );
 };
 

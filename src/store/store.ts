@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import booksSlice from "src/store/books/booksSlice";
+import mongodbSlice from "src/store/mongodb/mongodbSlice";
 import newSlice from "src/store/new/newSlice";
 
 export const store = configureStore({
     reducer: {
-        books: booksSlice,
-        new: newSlice
+        mongodb: mongodbSlice,
+        newBooks: newSlice
     },
 })
 

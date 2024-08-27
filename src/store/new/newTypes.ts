@@ -1,13 +1,6 @@
-import {FetchBooksParams} from "src/store/books/booksTypes";
+import {FetchBooksParams, MongodbTypes} from "src/store/mongodb/mongodbTypes";
 
-export interface NewTypes {
-    image: string
-    isbn13: string
-    price: string
-    subtitle: string
-    title: string
-    url: string
-}
+export interface NewTypes extends MongodbTypes {}
 
 
 export interface FetchNewParams extends  FetchBooksParams {}

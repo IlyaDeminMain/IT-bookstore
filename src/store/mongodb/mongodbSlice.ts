@@ -1,39 +1,46 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { axiosBooks } from "src/store/books/booksThunks";
+import {getMongodb} from "src/store/mongodb/mongodbThunks";
 import { ApiError } from 'src/api/types';
-import {BooksTypes} from "src/store/books/booksTypes";
+import {MongodbTypes} from "src/store/mongodb/mongodbTypes";
 
-interface BooksState {
-    items: BooksTypes[];
+export interface MongodbState {
+    items: MongodbTypes;
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: ApiError | null;
 }
 
-const initialState: BooksState = {
-    items: [],
+const books = {
+    books: [],
+    error: '',
+    page: '',
+    total: '',
+}
+
+const initialState: MongodbState = {
+    items: books,
     status: 'idle',
     error: null,
 };
 
-const BooksSlice = createSlice({
-    name: 'books',
+const MongodbSlice = createSlice({
+    name: 'mongodb',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(axiosBooks.pending, (state) => {
+            .addCase(getMongodb.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(axiosBooks.fulfilled, (state, action: PayloadAction<BooksTypes[]>) => {
+            .addCase(getMongodb.fulfilled, (state, action: PayloadAction<MongodbTypes>) => {
                 state.status = 'succeeded';
                 state.items = action.payload;
                 state.error = null;
             })
-            .addCase(axiosBooks.rejected, (state, action) => {
+            .addCase(getMongodb.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload ?? { message: 'Unknown error occurred' };
             })
     },
 });
 
-export default BooksSlice.reducer;
+export default MongodbSlice.reducer;
