@@ -15,7 +15,7 @@ export const buildWebpackOptions = (options: BuildOptions) =>{
         entry: paths.entry,
         output: {
             filename: 'js/[name].[contenthash].js',
-            chunkFilename: "js/chunk/chunk[name].[id].[contenthash:8].js",
+            chunkFilename: "js/chunk/chunk[name].[carts].[contenthash:8].js",
             assetModuleFilename: 'img/[hash][ext][query]',
             path: paths.output,
             clean: true

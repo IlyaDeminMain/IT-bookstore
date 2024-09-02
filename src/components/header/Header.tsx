@@ -1,14 +1,14 @@
 import {FC} from "react";
 import {Link} from "react-router-dom";
-import {ROUTES} from "src/utils/routes";
 import Logo from "src/assets/logo.svg"
 import Search from "src/assets/icons/search.svg";
 import Bag from "src/assets/icons/Bag.svg";
 import Heart from "src/assets/icons/heart.svg";
 import * as style from "./Header.module.css"
+import {useHookContext} from "src/utils/ContextWrapper";
 
 const Header: FC = () => {
-
+    const {ROUTES} = useHookContext()
     return (
         <header className={style["header"]}>
             <div className={style['logo']}>
@@ -44,7 +44,7 @@ const Header: FC = () => {
                         <Heart/>
                     </div>
                 </Link>
-                <Link to={ROUTES.CART} className={style["cart"]}>
+                <Link to={ROUTES.HOME} className={style["cart"]}>
                     <div className={style["icon-cart"]}>
                         <Bag/>
                     </div>
@@ -54,5 +54,4 @@ const Header: FC = () => {
         </header>
     );
 };
-
 export default Header;

@@ -18,7 +18,7 @@ export const buildPlugins = ({mode, paths, analyzer}: BuildOptions):Configuratio
         new HtmlWebpackPlugin({template: paths.html}),
         new FaviconsWebpackPlugin({
             logo: path.resolve(paths.public, 'favicon.svg'),
-            prefix: 'favicon/',
+            prefix: 'icon/',
         }),
         new DefinePlugin({
             __ENV__: JSON.stringify(mode)
@@ -34,7 +34,7 @@ export const buildPlugins = ({mode, paths, analyzer}: BuildOptions):Configuratio
             plugins.push(
                 new MiniCssExtractPlugin({
                 filename: "css/[name].[contenthash:8].css",
-                chunkFilename: "css/[id].[contenthash:8].css",
+                chunkFilename: "css/[carts].[contenthash:8].css",
             }));
         break;
     }

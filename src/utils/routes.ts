@@ -1,20 +1,11 @@
 
-const ROUTES = {
+export const ROUTES = {
     HOME: "/",
-    CART: "/cart",
-    HELP: "/help",
     NEW: "/new",
+    NEW_ID: "/new/:id",
     MONGODB: "/mongodb",
+    MONGODB_ID: "/mongodb/:id",
 } as const;
 
-type ObjectValues<T> = T[keyof T]
-
-type routes_address = ObjectValues<typeof ROUTES>
-
-export {
-    ROUTES,
-    ObjectValues,
-    routes_address
-}
 
 

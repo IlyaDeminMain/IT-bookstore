@@ -87,7 +87,7 @@
 }
 
 .content {
-  color: var(--violet);
+  color: var(--js-color);
   font-weight: 300;
   font-size: 70px;
   line-height: 85px;
@@ -101,6 +101,7 @@
 }
 
 .more {
+  color: var(--dark);
   margin-top: 27px;
 }
 
@@ -114,7 +115,7 @@
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-  color: var(--bg);
+  color: var(--white);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -122,6 +123,6 @@
 }
 
 .discount span {
-  color: var(--violet);
+  color: var(--js-color);
   font-weight: 700;
 }

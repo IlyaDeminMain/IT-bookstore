@@ -1,16 +1,22 @@
 import { Route, Routes} from "react-router-dom";
-import Home from "src/components/home/Home";
-import {ROUTES} from "src/utils/routes";
+import Poster from "src/components/poster/Poster";
+import Cart from "src/components/cart/Cart";
+import {mainPoster, mongoPoster, newPoster} from "src/components/poster/textPoster";
+import {useHookContext} from "src/utils/ContextWrapper";
 
-const AppRoutes = () => (
-    <Routes>
-        <Route path={`${ROUTES.MONGODB}/:id`} element={<h1>ID</h1>} />
-        <Route path={`${ROUTES.NEW}/:id`} element={<div>ID</div>}/>
-        <Route path={ROUTES.MONGODB} element={<h4>NOT ID</h4>} />
-        <Route path={ROUTES.NEW} element={<h4>NOT ID</h4>}/>
-        <Route path={ROUTES.HOME} element={<Home/>}/>
-        <Route path="*" element={<div />} />
-    </Routes>
-);
+const AppRoutes = () => {
+        const {ROUTES} = useHookContext()
+
+        return (
+            <Routes>
+                    <Route path={ROUTES.MONGODB_ID} element={<Cart/>} />
+                    <Route path={ROUTES.NEW_ID} element={<Cart/>}/>
+                    <Route path={ROUTES.MONGODB} element={<Poster head={mongoPoster.head} subtitle={mongoPoster.subtitle} img={mongoPoster.img} />} />
+                    <Route path={ROUTES.NEW} element={<Poster head={newPoster.head} subtitle={newPoster.subtitle} img={newPoster.img} />}/>
+                    <Route path={ROUTES.HOME} element={<Poster head={mainPoster.head} subtitle={mainPoster.subtitle} img={mainPoster.img} />}/>
+                    <Route path="*" element={<div />} />
+            </Routes>
+        );
+}
 
 export default AppRoutes;
